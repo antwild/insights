@@ -1,0 +1,25 @@
+:root {
+	/* Border radii */
+	--lg-border-radius: 8px;
+	--sm-border-radius: 4px;
+
+	/* Colours */
+	--midnight: #253648;
+	--gallery: #f7f7f8;
+	--cta: #0f81a3;
+	--cta-hover: #66aec5;
+	--positive-pill-text: #15693b;
+	--positive-pill-background: #ddf9ea;
+	--negative-pill-text: #764c25;
+	--negative-pill-background: #fdefe2;
+	--neutral-pill-background: #eeeff1;
+
+	/* Font Sizes */
+	--xl-font: 20px;
+	--lg-font: 16px;
+	--md-font: 14px;
+	--sm-font: 12px;
+
+	/* Box shadow */
+	--card-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.16);
+}
