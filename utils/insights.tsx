@@ -14,10 +14,10 @@ const creditUtilTrack = (accountsData) => {
 const publicInfoTrack = (personalData) =>
 	personalData.publicInfo.courtAndInsolvencies?.length === 0 ? true : false;
 
-const customerTracker = (title, data) => {
+const customerTracker = (heading, data) => {
 	const { accounts, personal } = data;
 
-	switch (title) {
+	switch (heading) {
 		case "Public information":
 			return publicInfoTrack(personal);
 		case "Credit utilisation":

@@ -3,6 +3,15 @@
 	src: url("/fonts/cs-clarity/cs-clarity-regular.ttf");
 }
 
+@font-face {
+	font-family: "cs-clarity-bold";
+	src: url("/fonts/cs-clarity/cs-clarity-bold.ttf");
+}
+
+body {
+	margin: 0;
+}
+
 :root {
 	/* Border radii */
 	--lg-border-radius: 8px;
@@ -13,6 +22,8 @@
 	--gallery: #f7f7f8;
 	--cta: #0f81a3;
 	--cta-hover: #66aec5;
+	--heading: #263648;
+	--description: #747f8a;
 	--positive-pill-text: #15693b;
 	--positive-pill-background: #ddf9ea;
 	--negative-pill-text: #764c25;
@@ -27,7 +38,11 @@
 
 	/* Fonts */
 	--cs-clarity: cs-clarity, Helvetica, Arial, sans-serif;
+	--cs-clarity-bold: cs-clarity-bold, Helvetica, Arial, sans-serif;
 
 	/* Box shadow */
 	--card-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.16);
+
+	/* Pill spacing */
+	--xl-pill: 4px 8px;
 }

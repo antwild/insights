@@ -17,7 +17,7 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 ## Assumptions:
 
 - Customer ID argument is hardcoded for the API call
-- Built desktop first, as the breakpoints given are `min-width`. Breakpoints with `max-width` would have suggested mobile first.
+- Built mobile first, as the breakpoints given are `min-width`, as I assume the web app would be viewed mostly on mobile (could be wrong!).
 - Assumed that there will always be a credit card, even though this is unlikely
 
 ## Extras
@@ -28,3 +28,8 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 - Delete unused fonts
 - What do I do if there is no account of 'credit cards' for the Credit utilisation check? (see assumptions)
+- Look for and remove any props that are strings inside of curly braces eg, `impact={"medium"}`
+- Look out for components or functions that just return and make sure they don't have curly braces
+- Layout of the page is based on their layout on the careers page (24px 6%)
+- Check what types are and aren't required
+- Remove margin-top on `Please wait` when loading

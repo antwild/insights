@@ -1,0 +1,32 @@
+.container {
+	border-radius: 4px;
+	padding: var(--xl-pill);
+	width: fit-content;
+	font-family: var(--cs-clarity);
+	font-weight: 300;
+	letter-spacing: 0.4px;
+	line-height: 16px;
+	height: 16px;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+.onTrack {
+	background-color: var(--positive-pill-background);
+	color: var(--positive-pill-text);
+}
+
+.offTrack {
+	background-color: var(--negative-pill-background);
+	color: var(--negative-pill-text);
+}
+
+.impact {
+	background-color: var(--neutral-pill-background);
+}
+
+.fullWidth {
+	width: auto;
+	margin-top: auto;
+	text-align: center;
+}

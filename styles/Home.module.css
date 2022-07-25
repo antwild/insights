@@ -1,0 +1,4 @@
+.layoutContainer {
+	background: var(--gallery);
+	height: 100vh;
+}
