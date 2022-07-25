@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "cs-clarity";
+	src: url("/fonts/cs-clarity/cs-clarity-regular.ttf");
+}
+
 :root {
 	/* Border radii */
 	--lg-border-radius: 8px;
@@ -19,6 +24,9 @@
 	--lg-font: 16px;
 	--md-font: 14px;
 	--sm-font: 12px;
+
+	/* Fonts */
+	--cs-clarity: cs-clarity, Helvetica, Arial, sans-serif;
 
 	/* Box shadow */
 	--card-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.16);
