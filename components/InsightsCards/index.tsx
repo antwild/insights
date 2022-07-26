@@ -22,7 +22,7 @@ const InsightsCard = ({
 }: InsightsCardProps): JSX.Element | null => {
 	const [isSmallerViewport, setIsSmallerViewport] = useState<boolean>();
 
-	// Monitors the size of the viewport for positioning the Impact pill
+	// Monitors the size of the viewport for positioning the 'Impact' pill
 	useEffect(() => {
 		const handleResize = () => {
 			window.innerWidth < 1024
@@ -36,7 +36,7 @@ const InsightsCard = ({
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
-	// Applies business logic to calculate if on track
+	// Applies business logic to calculate if on/off track
 	const onTrackCheck = customerTracker(heading, accounts, personal);
 
 	if (onTrackCheck === null) return null;
