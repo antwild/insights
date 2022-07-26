@@ -12,6 +12,7 @@ const Pill = ({ isOnTrack, impact, fullWidth }: PillProps): JSX.Element => {
 				impact ? style.impact : isOnTrack ? style.onTrack : style.offTrack,
 				fullWidth && style.fullWidth
 			)}
+			data-testid="pill"
 		>
 			{impact ? `${impact} Impact` : onTrackLanguage}
 		</div>

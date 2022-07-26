@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import style from "./InsightsCards.module.css";
-import _insightCardsData from "../../insightCardsData.json";
+import _insightCardData from "../../insightCardData.json";
 import { customerTracker } from "../../utils/insights";
 import type { CustomerDataProps, PillProps } from "../../types";
 import Pill from "../Pill";
@@ -38,17 +38,25 @@ const InsightsCard = ({
 
 	// Applies business logic to calculate if on track
 	const onTrackCheck = customerTracker(heading, accounts, personal);
+
 	if (onTrackCheck === null) return null;
 
 	return (
-		<div className={style.cardContainer}>
-			<div className={style.pills}>
+		<div className={style.cardContainer} data-testid="insightsCard">
+			<div className={style.pills} data-testid="upperPills">
 				<Pill isOnTrack={onTrackCheck} />
 				{!isSmallerViewport && <Pill impact={impact} />}
 			</div>
 			<div>
-				<h3 className={style.insightHeader}>{heading}</h3>
-				<p className={style.insightDescription}>{body}</p>
+				<h3 className={style.insightHeader} data-testid="insightsHeader">
+					{heading}
+				</h3>
+				<p
+					className={style.insightDescription}
+					data-testid="insightsDescription"
+				>
+					{body}
+				</p>
 			</div>
 			{isSmallerViewport && <Pill impact={impact} fullWidth />}
 		</div>
@@ -59,13 +67,13 @@ const InsightsCards = ({
 	accounts,
 	personal,
 }: CustomerDataProps): JSX.Element => {
-	const insightCardsData = _insightCardsData as CardProps[];
+	const insightCardData = _insightCardData as CardProps[];
 
 	return (
-		<div className={style.insights}>
+		<div className={style.insights} data-testid="insightsCards">
 			<h1 className={style.heading}>Insights</h1>
 			<div className={style.insightsCards}>
-				{insightCardsData.map((card) => (
+				{insightCardData.map((card) => (
 					<InsightsCard
 						key={card.heading}
 						{...card}

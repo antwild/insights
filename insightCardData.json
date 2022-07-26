@@ -1,0 +1,17 @@
+[
+	{
+		"heading": "Electoral roll",
+		"body": "Being on the electoral roll can improve your score",
+		"impact": "Medium"
+	},
+	{
+		"heading": "Public information",
+		"body": "Bankruptcies and individual voluntary arrangements can damage your score",
+		"impact": "High"
+	},
+	{
+		"heading": "Credit utilisation",
+		"body": "Using more than 50% of your available credit can damage your score",
+		"impact": "Medium"
+	}
+]
