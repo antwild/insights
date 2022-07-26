@@ -1,5 +1,5 @@
 export type PillProps = {
-    isOnTrack?: boolean; 
-    impact?: "High" | "Medium"; 
-    fullWidth?: boolean;
-}
+	isOnTrack?: boolean;
+	impact?: "High" | "Medium" | "Low";
+	fullWidth?: boolean;
+};

@@ -1,11 +1,12 @@
 import { useState } from "react";
-import type { NextPage } from "next";
 import style from "../styles/Home.module.css";
 import { getCustomerInsights } from "../utils/api";
+import type { NextPage } from "next";
+import type { CustomerDataProps } from "../types";
 import InsightsCards from "../components/InsightsCards";
 
 const Home: NextPage = () => {
-	const [insights, setInsights] = useState(null);
+	const [insights, setInsights] = useState<CustomerDataProps>();
 	const [isLoading, setIsLoading] = useState(false);
 	const [hasLoaded, setHasLoaded] = useState(false);
 
@@ -18,10 +19,9 @@ const Home: NextPage = () => {
 
 	return (
 		<div className={style.layoutContainer}>
-			{isLoading && <h3>Please Wait...</h3>}
-			{insights && insights.accounts[0].name && !isLoading && (
+			{!!insights && !isLoading && (
 				<div className={style.results}>
-					<InsightsCards customerData={insights} />
+					<InsightsCards {...insights} />
 				</div>
 			)}
 			{!hasLoaded && (
@@ -29,6 +29,7 @@ const Home: NextPage = () => {
 					Get insights here
 				</button>
 			)}
+			{isLoading && <h3>Please Wait...</h3>}
 		</div>
 	);
 };

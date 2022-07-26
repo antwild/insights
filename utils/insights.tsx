@@ -1,9 +1,17 @@
-const elecRollTrack = (personalData) => personalData.electoralRoll[0].current;
+// Business logic helpers for Insights
+import type { CustomerDataProps } from "../types";
 
-const creditUtilTrack = (accountsData) => {
+const elecRollTrack = (personalData: CustomerDataProps["personal"]): boolean =>
+	personalData.electoralRoll[0].current;
+
+const creditUtilTrack = (
+	accountsData: CustomerDataProps["accounts"]
+): boolean | null => {
 	const creditCards = accountsData.find(
 		(account) => account.accountCategory === "credit_cards"
 	);
+	if (!creditCards) return null;
+
 	const { overview } = creditCards;
 	const percentageDiff =
 		(100 * overview.balance.amount) / overview.limit.amount;
@@ -11,12 +19,16 @@ const creditUtilTrack = (accountsData) => {
 	return percentageDiff < 50 ? true : false;
 };
 
-const publicInfoTrack = (personalData) =>
-	personalData.publicInfo.courtAndInsolvencies?.length === 0 ? true : false;
+const publicInfoTrack = (
+	personalData: CustomerDataProps["personal"]
+): boolean =>
+	personalData.publicInfo.courtAndInsolvencies.length === 0 ? true : false;
 
-const customerTracker = (heading, data) => {
-	const { accounts, personal } = data;
-
+const customerTracker = (
+	heading: string,
+	accounts: CustomerDataProps["accounts"],
+	personal: CustomerDataProps["personal"]
+): boolean | null => {
 	switch (heading) {
 		case "Public information":
 			return publicInfoTrack(personal);
@@ -25,7 +37,7 @@ const customerTracker = (heading, data) => {
 		case "Electoral roll":
 			return elecRollTrack(personal);
 		default:
-			null;
+			return null;
 	}
 };
 

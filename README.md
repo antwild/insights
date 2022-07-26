@@ -26,7 +26,7 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 ## Notes before submission
 
-- Delete unused fonts
+- XL when there are 6 cards
 - What do I do if there is no account of 'credit cards' for the Credit utilisation check? (see assumptions)
 - Look for and remove any props that are strings inside of curly braces eg, `impact={"medium"}`
 - Look out for components or functions that just return and make sure they don't have curly braces
