@@ -1,4 +1,5 @@
 import { useState } from "react";
+import classnames from "classnames";
 import style from "../styles/Home.module.css";
 import { getCustomerInsights } from "../utils/api";
 import type { NextPage } from "next";
@@ -18,18 +19,25 @@ const Home: NextPage = () => {
 	};
 
 	return (
-		<div className={style.layoutContainer}>
-			{!!insights && !isLoading && (
-				<div className={style.results}>
-					<InsightsCards {...insights} />
+		<div
+			className={classnames(
+				style.layoutContainer,
+				!hasLoaded && style.unLoaded
+			)}
+		>
+			{!!insights && !isLoading && <InsightsCards {...insights} />}
+			{!hasLoaded && (
+				<div className={style.welcome}>
+					<h1>Hello, Mr Everything</h1>
+					{isLoading ? (
+						<h3 className={style.wait}>Please Wait...</h3>
+					) : (
+						<button className={style.getInsights} onClick={insightsRequest}>
+							Get your insights
+						</button>
+					)}
 				</div>
 			)}
-			{!hasLoaded && (
-				<button onClick={insightsRequest} disabled={isLoading}>
-					Get insights here
-				</button>
-			)}
-			{isLoading && <h3>Please Wait...</h3>}
 		</div>
 	);
 };

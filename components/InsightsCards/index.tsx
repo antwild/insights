@@ -11,15 +11,13 @@ type CardProps = {
 	impact: PillProps["impact"];
 };
 
-type InsightsCardProps = CustomerDataProps & CardProps;
-
 const InsightsCard = ({
 	heading,
 	body,
 	impact,
 	accounts,
 	personal,
-}: InsightsCardProps): JSX.Element | null => {
+}: CustomerDataProps & CardProps): JSX.Element | null => {
 	const [isSmallerViewport, setIsSmallerViewport] = useState<boolean>();
 
 	// Monitors the size of the viewport for positioning the 'Impact' pill

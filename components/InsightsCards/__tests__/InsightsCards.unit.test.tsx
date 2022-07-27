@@ -49,7 +49,9 @@ describe("InsightsCards", () => {
 		const upperPillCount =
 			within(upperPillContainer).queryAllByTestId("pill").length;
 
+		// Two pills rendered per card
 		expect(allRenderedPills).toBe(insightCardData.length * 2);
+		// One pill at the top of a card
 		expect(upperPillCount).toBe(1);
 	});
 
@@ -61,7 +63,9 @@ describe("InsightsCards", () => {
 		const upperPillCount =
 			within(upperPillContainer).queryAllByTestId("pill").length;
 
+		// Two pills rendered per card
 		expect(allRenderedPills).toBe(insightCardData.length * 2);
+		// Two pills at the top of a card
 		expect(upperPillCount).toBe(2);
 	});
 });

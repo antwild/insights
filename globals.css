@@ -29,6 +29,7 @@ body {
 	--negative-pill-text: #764c25;
 	--negative-pill-background: #fdefe2;
 	--neutral-pill-background: #eeeff1;
+	--white: #ffffff;
 
 	/* Font Sizes */
 	--xl-font: 20px;
@@ -42,7 +43,4 @@ body {
 
 	/* Box shadow */
 	--card-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.16);
-
-	/* Pill spacing */
-	--xl-pill: 4px 8px;
 }

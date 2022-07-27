@@ -5,10 +5,9 @@
 }
 
 .heading {
-	margin-top: 0;
-	margin-bottom: 0;
+	margin: 0;
 	font-family: var(--cs-clarity-bold);
-	padding: 1.5rem 6% 0;
+	padding: 24px 6% 0;
 }
 
 .insightsCards {
@@ -16,32 +15,25 @@
 	grid-template-columns: repeat(3, 50.3%);
 	overflow: scroll;
 	gap: 8px;
-	padding: 0 6% 1.5rem;
+	padding: 0 6% 24px;
 }
 
 .cardContainer {
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
-	flex-basis: 33%;
-	background: white;
-	box-shadow: 0 0.5rem 0.75rem rgb(0 0 0 / 16%);
-	border-radius: 8px;
+	background: var(--white);
+	box-shadow: var(--card-shadow);
+	border-radius: var(--lg-border-radius);
 	padding: 16px;
-}
-
-.pills {
-	display: flex;
-	gap: 8px;
 }
 
 .insightHeader {
 	font-family: var(--cs-clarity-bold);
 	letter-spacing: 0.5px;
-	margin-top: 0;
-	margin-bottom: 4px;
+	margin: 0 0 4px;
 	color: var(--heading);
-	font-size: 16px;
+	font-size: var(--lg-font);
 	line-height: 20px;
 }
 
@@ -74,6 +66,11 @@
 
 	.cardContainer {
 		padding: 24px;
+	}
+
+	.pills {
+		display: flex;
+		gap: 8px;
 	}
 }
 

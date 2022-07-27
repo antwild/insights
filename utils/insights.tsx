@@ -1,9 +1,11 @@
 // Business logic helpers for Insights
 import type { CustomerDataProps } from "../types";
 
+// Calculates on or off track for Electoral roll card
 const elecRollTrack = (personalData: CustomerDataProps["personal"]): boolean =>
 	personalData.electoralRoll[0].current;
 
+// Calculates on or off track for Credit utilisation card
 const creditUtilTrack = (
 	accountsData: CustomerDataProps["accounts"]
 ): boolean | null => {
@@ -19,11 +21,13 @@ const creditUtilTrack = (
 	return percentageDiff < 50 ? true : false;
 };
 
+// Calculates on or off track for Public information card
 const publicInfoTrack = (
 	personalData: CustomerDataProps["personal"]
 ): boolean =>
 	personalData.publicInfo.courtAndInsolvencies.length === 0 ? true : false;
 
+// Uses the appropriate function based on which card is being rendered
 const customerTracker = (
 	heading: string,
 	accounts: CustomerDataProps["accounts"],
