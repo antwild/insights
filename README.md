@@ -14,7 +14,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to be take
 
 ## Assumptions:
 
-- Assumed that any JSON that is required to run the business logic against, such as the `courtAndInsolvencies` object within `personal.publicInfo`, will always be present in the JSON and in this case, would return an empty array if there were no results.
+- Assumed that any JSON that is required to run the business logic against, such as the `courtAndInsolvencies` object within `personal.publicInfo`, will always be present in the JSON and in this case, would return an empty array if there were no results. Typically, I would add a way of handling when an expected JSON path is not found.
 
 - I've assumed that the on/off track and impact pills could be used for other components (such as a similar card on another feature), so it's been created as it's own component.
 
