@@ -36,8 +36,6 @@ Under the `personal` property, there is an array called `electoralRoll`, if ther
 
 ### The Designs
 
-More detailed screenshots can be found at [/design](/design).
-
 **Small**
 
 ![image](https://user-images.githubusercontent.com/21218317/76093511-fb1fae00-5fb8-11ea-98eb-2effebc28477.png)
