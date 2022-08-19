@@ -1,4 +1,10 @@
-Thank you for taking the time to look over my technical test for ClearScore!
+### The Component
+
+We're hoping to improve our user's experience by implementing an attractive "Insights" feature in the report section. These will be used to highlight certain aspects of a user's report, both in terms of what is going well and what can be improved.
+
+Please implement this feature, consuming a subset of a credit report JSON payload in order to conditionally display the on/off track tokens. The component consists of a header, with either a horizontally scrollable list or grid of cards underneath, depending on the current viewport size. Each card is identical but for the pills & text therein.
+
+![image](https://user-images.githubusercontent.com/21218317/76093511-fb1fae00-5fb8-11ea-98eb-2effebc28477.png)
 
 ## Getting Started
 
@@ -12,27 +18,45 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to be taken to the homepage. Here you will be greeted (as Simon Everything) and will see a button to render the Insights component. Click it!
 
-## Assumptions:
+### Business Logic
 
-- Assumed that any JSON that is required to run the business logic against, such as the `courtAndInsolvencies` object within `personal.publicInfo`, will always be present in the JSON and in this case, would return an empty array if there were no results. Typically, I would add a way of handling when an expected JSON path is not found.
+The following describes the logic for determining whether or not a particular user is on or off track depending upon their credit report JSON.
 
-- I've assumed that the on/off track and impact pills could be used for other components (such as a similar card on another feature), so it's been created as it's own component.
+**Public information**
 
-- I've assumed that the long figure in the API route, before the params (6107fbe9f14b8b153e05e714) is the UID of Simon Everything and that another call to that API route with a different customer's UID would return the data for that person instead.
+Under the `personal` property, then `publicInfo` , if the list `courtAndInsolvencies` has any elements then this insight is "OFF TRACK"
 
-## Notes to consider:
+**Credit utilisation**
 
-- As in the details of the readme, I was interested in using a component showcase framework to match what is used at ClearScore in ways of a design system. I began to look into `Storybook` to understand how this could work, however I am not familiar with the tool. I therefore chose the option of demoing through this app instead as in the interest of time, I wanted to demonstrate the skills that I have, rather than ones that I would have learnt on the fly such as using `Storybook`. I am however, always interested in learning new skills and technologies and would, with more time, have been excited to dive into `Storybook` and get it up and running!
+Under the `accounts` property, if there is an object with the `accountCategory` of `credit_cards` where `overview.balance.amount` is 50% or more of `overview.limit.amount` then this insight is "OFF TRACK".
 
-- The designs have been built with a mobile (smallest display) first approach.
+**Electoral roll**
 
-- I could have used `grid-template-area` and a media query for placing the `Impact` pill, but went the way I did to display knowledge of `useEffect`. Also, I wanted to create a test for the position of the `Impact` pill on the different screen sizes, which would have been trickier through using `grid-template-area`.
+Under the `personal` property, there is an array called `electoralRoll`, if there is an entry with a `true` value on the `current` property, then this insight is "ON TRACK"
 
-- The user ID for the API call and the "Hello Mr Everything" text on the homepage is hardcoded. Typically, they would come from the logged in user's details in the real world for many reasons, but most importantly, security.
+### The Designs
 
-- I wanted to make the API call to display the insights when the "user" requested them and not just appear on load, hence the "Get your insights" button.
+More detailed screenshots can be found at [/design](/design).
 
-- The layout of the component on the page (how far it is from the edges of the viewport) is based on the layout on the ClearScore careers page (24px 6%)
+**Small**
+
+![image](https://user-images.githubusercontent.com/21218317/76093511-fb1fae00-5fb8-11ea-98eb-2effebc28477.png)
+
+**Medium**
+
+![image](https://user-images.githubusercontent.com/21218317/76093517-fce97180-5fb8-11ea-8516-9925ff68bbac.png)
+
+**Large**
+
+![image](https://user-images.githubusercontent.com/21218317/76093524-feb33500-5fb8-11ea-8aaa-79ff22b37e7b.png)
+
+**Extra large**
+
+![image](https://user-images.githubusercontent.com/21218317/76093528-01158f00-5fb9-11ea-9b92-cea5910a0e38.png)
+
+> The width of the card is dependent on the screen, and on small and medium screens 2 cards are full visible, with only small amount of the third visible.
+>
+> The height of the card is dependent on the copy, but all cards should be the same height.
 
 ## Folder structure
 
